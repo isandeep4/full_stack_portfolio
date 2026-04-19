@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import ProjectDetail from "@/pages/ProjectDetail";
+import EventBusDetail from "@/pages/EventBusDetail";
 
 const queryClient = new QueryClient();
 
@@ -14,6 +15,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/project/distributed-cache" component={ProjectDetail} />
+      <Route path="/project/event-bus" component={EventBusDetail} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Star, GitFork, ExternalLink, Code, ArrowRight, Layers, Zap, ShieldCheck } from "lucide-react";
+import { Star, GitFork, ExternalLink, Code, ArrowRight, Layers, Zap, ShieldCheck, Radio, RefreshCw, AlertTriangle } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
 
@@ -60,57 +60,104 @@ export function GitHubProjects() {
           </a>
         </div>
 
-        {/* Featured Case Study */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.5 }}
-          className="mb-8"
-        >
-          <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-3">Featured Case Study</p>
-          <Link
-            href="/project/distributed-cache"
-            className="group relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 p-6 rounded-2xl border border-primary/30 bg-primary/5 hover:border-primary/60 hover:bg-primary/10 transition-all duration-300 overflow-hidden"
-            data-testid="link-featured-project"
+        {/* Featured Case Studies */}
+        <div className="mb-8 space-y-4">
+          <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-3">Featured Case Studies</p>
+
+          {/* Cache System */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5 }}
           >
-            {/* Subtle glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-transparent pointer-events-none" />
-
-            <div className="relative flex-1 space-y-3">
-              <div className="flex flex-wrap gap-2">
-                {["Java", "Concurrency", "LRU / LFU", "CompletionStage"].map((tag) => (
-                  <span key={tag} className="text-xs font-mono px-2 py-0.5 rounded-md bg-card border border-border text-muted-foreground">
-                    {tag}
-                  </span>
-                ))}
+            <Link
+              href="/project/distributed-cache"
+              className="group relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 p-6 rounded-2xl border border-primary/30 bg-primary/5 hover:border-primary/60 hover:bg-primary/10 transition-all duration-300 overflow-hidden"
+              data-testid="link-featured-project"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-transparent pointer-events-none" />
+              <div className="relative flex-1 space-y-3">
+                <div className="flex flex-wrap gap-2">
+                  {["Java", "Concurrency", "LRU / LFU", "CompletionStage"].map((tag) => (
+                    <span key={tag} className="text-xs font-mono px-2 py-0.5 rounded-md bg-card border border-border text-muted-foreground">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                  Generic In-Memory Cache System
+                </h3>
+                <p className="text-sm text-muted-foreground max-w-xl">
+                  Type-safe, async, thread-safe in-memory cache in Java with pluggable LRU/LFU eviction, configurable TTL, write-through/write-back persistence, and key-sharded thread pools.
+                </p>
+                <div className="flex flex-wrap items-center gap-5 pt-1">
+                  {[
+                    { icon: Layers, label: "LRU + LFU eviction", color: "text-amber-500" },
+                    { icon: Zap, label: "Async CompletionStage", color: "text-blue-500" },
+                    { icon: ShieldCheck, label: "Thread-safe by design", color: "text-violet-500" },
+                  ].map(({ icon: Icon, label, color }) => (
+                    <div key={label} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                      <Icon className={`h-3.5 w-3.5 ${color}`} />
+                      {label}
+                    </div>
+                  ))}
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                Generic In-Memory Cache System
-              </h3>
-              <p className="text-sm text-muted-foreground max-w-xl">
-                Type-safe, async, thread-safe in-memory cache in Java with pluggable LRU/LFU eviction, configurable TTL, write-through/write-back persistence, and key-sharded thread pools.
-              </p>
-              <div className="flex flex-wrap items-center gap-5 pt-1">
-                {[
-                  { icon: Layers, label: "LRU + LFU eviction", color: "text-amber-500" },
-                  { icon: Zap, label: "Async CompletionStage", color: "text-blue-500" },
-                  { icon: ShieldCheck, label: "Thread-safe by design", color: "text-violet-500" },
-                ].map(({ icon: Icon, label, color }) => (
-                  <div key={label} className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                    <Icon className={`h-3.5 w-3.5 ${color}`} />
-                    {label}
-                  </div>
-                ))}
+              <div className="relative shrink-0 flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all">
+                <span>View Case Study</span>
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </div>
-            </div>
+            </Link>
+          </motion.div>
 
-            <div className="relative shrink-0 flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all">
-              <span>View Case Study</span>
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </Link>
-        </motion.div>
+          {/* Event Bus */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <Link
+              href="/project/event-bus"
+              className="group relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 p-6 rounded-2xl border border-emerald-500/30 bg-emerald-500/5 hover:border-emerald-500/60 hover:bg-emerald-500/10 transition-all duration-300 overflow-hidden"
+              data-testid="link-featured-event-bus"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/5 via-transparent to-transparent pointer-events-none" />
+              <div className="relative flex-1 space-y-3">
+                <div className="flex flex-wrap gap-2">
+                  {["Java", "Pub/Sub", "CompletionStage", "Retry", "Dead Letter Queue"].map((tag) => (
+                    <span key={tag} className="text-xs font-mono px-2 py-0.5 rounded-md bg-card border border-border text-muted-foreground">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="text-xl font-bold text-foreground group-hover:text-emerald-400 transition-colors">
+                  Async Event Bus Pub/Sub System
+                </h3>
+                <p className="text-sm text-muted-foreground max-w-xl">
+                  Fully async pub/sub event bus with PUSH and PULL delivery, per-subscriber offset tracking, timestamp-based event replay, exponential/periodic retry, and a dead letter queue.
+                </p>
+                <div className="flex flex-wrap items-center gap-5 pt-1">
+                  {[
+                    { icon: Radio, label: "PUSH + PULL delivery", color: "text-emerald-500" },
+                    { icon: RefreshCw, label: "Exponential back-off retry", color: "text-violet-500" },
+                    { icon: AlertTriangle, label: "Dead letter queue", color: "text-red-400" },
+                  ].map(({ icon: Icon, label, color }) => (
+                    <div key={label} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                      <Icon className={`h-3.5 w-3.5 ${color}`} />
+                      {label}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="relative shrink-0 flex items-center gap-2 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
+                <span>View Case Study</span>
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+          </motion.div>
+        </div>
 
         {/* GitHub repos heading */}
         <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6">Open Source Repositories</p>
