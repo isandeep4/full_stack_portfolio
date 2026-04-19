@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ArrowRight } from "lucide-react";
+import { Github, ArrowRight } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
-import { ThemeToggle } from "@/components/ThemeToggle";
 
 interface GitHubProfile {
   avatar_url: string;
@@ -25,11 +24,7 @@ export function Hero() {
   });
 
   return (
-    <section className="relative min-h-[90vh] flex flex-col justify-center pt-20 pb-32">
-      <div className="absolute top-8 right-8 z-50">
-        <ThemeToggle />
-      </div>
-
+    <section id="home" className="relative min-h-[90vh] flex flex-col justify-center pt-12 pb-32">
       <div className="max-w-4xl mx-auto w-full px-6 md:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
