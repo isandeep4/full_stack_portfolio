@@ -7,6 +7,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import ProjectDetail from "@/pages/ProjectDetail";
 import EventBusDetail from "@/pages/EventBusDetail";
+import CarbonFootprintDetail from "@/pages/CarbonFootprintDetail";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/project/distributed-cache" component={ProjectDetail} />
       <Route path="/project/event-bus" component={EventBusDetail} />
+      <Route path="/project/carbon-footprint" component={CarbonFootprintDetail} />
       <Route component={NotFound} />
     </Switch>
   );

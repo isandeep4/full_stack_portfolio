@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Star, GitFork, ExternalLink, Code, ArrowRight, Layers, Zap, ShieldCheck, Radio, RefreshCw, AlertTriangle } from "lucide-react";
+import { Star, GitFork, ExternalLink, Code, ArrowRight, Layers, Zap, ShieldCheck, Radio, RefreshCw, AlertTriangle, Leaf, Cloud, BarChart2 } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
 
@@ -152,6 +152,52 @@ export function GitHubProjects() {
                 </div>
               </div>
               <div className="relative shrink-0 flex items-center gap-2 text-sm font-medium text-emerald-400 group-hover:gap-3 transition-all">
+                <span>View Case Study</span>
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+          </motion.div>
+          {/* Carbon Footprint */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <Link
+              href="/project/carbon-footprint"
+              className="group relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 p-6 rounded-2xl border border-green-500/30 bg-green-500/5 hover:border-green-500/60 hover:bg-green-500/10 transition-all duration-300 overflow-hidden"
+              data-testid="link-featured-carbon"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 via-transparent to-transparent pointer-events-none" />
+              <div className="relative flex-1 space-y-3">
+                <div className="flex flex-wrap gap-2">
+                  {["Next.js", "TypeScript", "MUI", "Climatiq API", "GraphQL", "AWS Lambda"].map((tag) => (
+                    <span key={tag} className="text-xs font-mono px-2 py-0.5 rounded-md bg-card border border-border text-muted-foreground">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="text-xl font-bold text-foreground group-hover:text-green-400 transition-colors">
+                  Carbon Footprint Calculator & Visualizer
+                </h3>
+                <p className="text-sm text-muted-foreground max-w-xl">
+                  Full-stack Next.js app with a multi-step questionnaire, real emission factors from the Climatiq API, India vs. global comparison results, and a GraphQL-powered monthly history dashboard.
+                </p>
+                <div className="flex flex-wrap items-center gap-5 pt-1">
+                  {[
+                    { icon: Leaf, label: "Dynamic 4-section questionnaire", color: "text-green-500" },
+                    { icon: Cloud, label: "Climatiq emission factors", color: "text-sky-500" },
+                    { icon: BarChart2, label: "GraphQL dashboard", color: "text-violet-500" },
+                  ].map(({ icon: Icon, label, color }) => (
+                    <div key={label} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                      <Icon className={`h-3.5 w-3.5 ${color}`} />
+                      {label}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="relative shrink-0 flex items-center gap-2 text-sm font-medium text-green-400 group-hover:gap-3 transition-all">
                 <span>View Case Study</span>
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </div>
