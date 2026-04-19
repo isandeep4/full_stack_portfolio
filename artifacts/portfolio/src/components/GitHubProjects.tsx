@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Star, GitFork, ExternalLink, Code } from "lucide-react";
+import { Star, GitFork, ExternalLink, Code, ArrowRight, Clock, Database, ShieldCheck } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "wouter";
 
 interface Repository {
   id: number;
@@ -58,6 +59,61 @@ export function GitHubProjects() {
             View all on GitHub <ExternalLink className="h-4 w-4" />
           </a>
         </div>
+
+        {/* Featured Case Study */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.5 }}
+          className="mb-8"
+        >
+          <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-3">Featured Case Study</p>
+          <Link
+            href="/project/distributed-cache"
+            className="group relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 p-6 rounded-2xl border border-primary/30 bg-primary/5 hover:border-primary/60 hover:bg-primary/10 transition-all duration-300 overflow-hidden"
+            data-testid="link-featured-project"
+          >
+            {/* Subtle glow */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-transparent pointer-events-none" />
+
+            <div className="relative flex-1 space-y-3">
+              <div className="flex flex-wrap gap-2">
+                {["Redis", "Kafka", "Python", "System Design"].map((tag) => (
+                  <span key={tag} className="text-xs font-mono px-2 py-0.5 rounded-md bg-card border border-border text-muted-foreground">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                Scalable Distributed LRU Cache
+              </h3>
+              <p className="text-sm text-muted-foreground max-w-xl">
+                Multi-node Redis caching layer with event-driven invalidation via Kafka. Reduced database query volume by 60% and dropped P99 latency from 340ms to 2ms.
+              </p>
+              <div className="flex flex-wrap items-center gap-5 pt-1">
+                {[
+                  { icon: Clock, label: "2ms latency", color: "text-emerald-500" },
+                  { icon: Database, label: "60% DB reduction", color: "text-blue-500" },
+                  { icon: ShieldCheck, label: "99.9% consistency", color: "text-violet-500" },
+                ].map(({ icon: Icon, label, color }) => (
+                  <div key={label} className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <Icon className={`h-3.5 w-3.5 ${color}`} />
+                    {label}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="relative shrink-0 flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all">
+              <span>View Case Study</span>
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
+        </motion.div>
+
+        {/* GitHub repos heading */}
+        <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest mb-6">Open Source Repositories</p>
 
         {isLoading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
