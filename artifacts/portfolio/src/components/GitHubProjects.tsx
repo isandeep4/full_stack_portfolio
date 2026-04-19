@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Star, GitFork, ExternalLink, Code, ArrowRight, Clock, Database, ShieldCheck } from "lucide-react";
+import { Star, GitFork, ExternalLink, Code, ArrowRight, Layers, Zap, ShieldCheck } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
 
@@ -79,23 +79,23 @@ export function GitHubProjects() {
 
             <div className="relative flex-1 space-y-3">
               <div className="flex flex-wrap gap-2">
-                {["Redis", "Kafka", "Python", "System Design"].map((tag) => (
+                {["Java", "Concurrency", "LRU / LFU", "CompletionStage"].map((tag) => (
                   <span key={tag} className="text-xs font-mono px-2 py-0.5 rounded-md bg-card border border-border text-muted-foreground">
                     {tag}
                   </span>
                 ))}
               </div>
               <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                Scalable Distributed LRU Cache
+                Generic In-Memory Cache System
               </h3>
               <p className="text-sm text-muted-foreground max-w-xl">
-                Multi-node Redis caching layer with event-driven invalidation via Kafka. Reduced database query volume by 60% and dropped P99 latency from 340ms to 2ms.
+                Type-safe, async, thread-safe in-memory cache in Java with pluggable LRU/LFU eviction, configurable TTL, write-through/write-back persistence, and key-sharded thread pools.
               </p>
               <div className="flex flex-wrap items-center gap-5 pt-1">
                 {[
-                  { icon: Clock, label: "2ms latency", color: "text-emerald-500" },
-                  { icon: Database, label: "60% DB reduction", color: "text-blue-500" },
-                  { icon: ShieldCheck, label: "99.9% consistency", color: "text-violet-500" },
+                  { icon: Layers, label: "LRU + LFU eviction", color: "text-amber-500" },
+                  { icon: Zap, label: "Async CompletionStage", color: "text-blue-500" },
+                  { icon: ShieldCheck, label: "Thread-safe by design", color: "text-violet-500" },
                 ].map(({ icon: Icon, label, color }) => (
                   <div key={label} className="flex items-center gap-1.5 text-xs text-muted-foreground">
                     <Icon className={`h-3.5 w-3.5 ${color}`} />
