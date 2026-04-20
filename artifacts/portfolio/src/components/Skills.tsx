@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { SiTypescript, SiJavascript, SiReact, SiPython, SiGo, SiRust, SiNodedotjs, SiTailwindcss, SiNextdotjs, SiDocker, SiPostgresql, SiMongodb } from "react-icons/si";
+import { DiJava } from "react-icons/di";
 
 const skills = [
   { name: "TypeScript", icon: SiTypescript, color: "#3178c6" },
   { name: "JavaScript", icon: SiJavascript, color: "#f7df1e" },
-  { name: "Java", icon: FaJava, color: "#f7df1e" },
+  { name: "Java", icon: DiJava, color: "#f7df1e" },
   { name: "React", icon: SiReact, color: "#61dafb" },
   { name: "Next.js", icon: SiNextdotjs, color: "#000000", darkColor: "#ffffff" },
   { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
