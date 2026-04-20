@@ -4,12 +4,11 @@ import { SiTypescript, SiJavascript, SiReact, SiPython, SiGo, SiRust, SiNodedotj
 const skills = [
   { name: "TypeScript", icon: SiTypescript, color: "#3178c6" },
   { name: "JavaScript", icon: SiJavascript, color: "#f7df1e" },
+  { name: "Java", icon: FaJava, color: "#f7df1e" },
   { name: "React", icon: SiReact, color: "#61dafb" },
   { name: "Next.js", icon: SiNextdotjs, color: "#000000", darkColor: "#ffffff" },
   { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
   { name: "Python", icon: SiPython, color: "#3776ab" },
-  { name: "Go", icon: SiGo, color: "#00add8" },
-  { name: "Rust", icon: SiRust, color: "#000000", darkColor: "#dea584" },
   { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06b6d4" },
   { name: "PostgreSQL", icon: SiPostgresql, color: "#336791" },
   { name: "MongoDB", icon: SiMongodb, color: "#47a248" },
